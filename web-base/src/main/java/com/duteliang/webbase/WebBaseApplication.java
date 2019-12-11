@@ -1,7 +1,9 @@
 package com.duteliang.webbase;
 
+import com.duteliang.webbase.listener.MyEvent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * @author: zl
@@ -11,7 +13,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WebBaseApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WebBaseApplication.class,args);
+		ConfigurableApplicationContext run = SpringApplication.run(WebBaseApplication.class, args);
+		run.publishEvent(new MyEvent(new Object()));
 	}
 
 }
