@@ -15,6 +15,7 @@ public class WebBaseApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext run = SpringApplication.run(WebBaseApplication.class, args);
 		run.publishEvent(new MyEvent(new Object()));
+		run.close();
 	}
 
 }
