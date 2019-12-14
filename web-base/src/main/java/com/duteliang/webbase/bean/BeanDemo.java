@@ -32,6 +32,9 @@ public class BeanDemo implements BeanNameAware, BeanFactoryAware, ApplicationCon
     private BeanDemo2 beanDemo2;
 
     @Autowired
+    private MyBean myBean;
+
+    @Autowired
     public void setBeanDemo2(BeanDemo2 beanDemo2) {
         this.beanDemo2 = beanDemo2;
         log.warn("BeanDemo 的注入！");
