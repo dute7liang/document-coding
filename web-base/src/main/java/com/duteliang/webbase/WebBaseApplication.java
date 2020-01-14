@@ -1,6 +1,5 @@
 package com.duteliang.webbase;
 
-import com.duteliang.webbase.bean.MyBean;
 import com.duteliang.webbase.listener.MyEvent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
