@@ -1,5 +1,6 @@
 package com.duteliang.webbase;
 
+import com.duteliang.webbase.aop.AopService;
 import com.duteliang.webbase.listener.MyEvent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,6 +18,11 @@ public class WebBaseApplication {
 		System.out.println(run.getBean("myFactoryBean"));
 		System.out.println(run.getBean("&myFactoryBean"));
 		run.publishEvent(new MyEvent(new Object()));
+
+
+		AopService bean = run.getBean(AopService.class);
+		bean.aopTest("name");
+
 		run.close();
 	}
 
