@@ -21,7 +21,12 @@ public class WebBaseApplication {
 
 
 		AopService bean = run.getBean(AopService.class);
-		bean.aopTest("name");
+		try {
+			bean.aopTest("name");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("捕获到异常！");
+		}
 
 		run.close();
 	}

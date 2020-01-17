@@ -8,12 +8,11 @@ import org.springframework.stereotype.Component;
  * @Date: 2020-1-16 15:30
  */
 @Component
-@Slf4j
 public class AopService implements AopServiceI{
-
+    @Override
     public String aopTest(String name){
-        log.info("我是aop测试：{}",name);
+        System.out.println("我是AOP 实际方法：{}"+name);
+        int i = 2/0;
         return name;
     }
-
 }
