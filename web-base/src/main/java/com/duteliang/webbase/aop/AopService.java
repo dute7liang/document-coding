@@ -1,6 +1,5 @@
 package com.duteliang.webbase.aop;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
@@ -8,11 +7,12 @@ import org.springframework.stereotype.Component;
  * @Date: 2020-1-16 15:30
  */
 @Component
-public class AopService implements AopServiceI{
-    @Override
+@AopAnnotation
+public class AopService extends AopAbsService implements AopServiceI{
+
     public String aopTest(String name){
-        System.out.println("我是AOP 实际方法：{}"+name);
-        int i = 2/0;
+        System.out.println("我是AOP 实际方法");
         return name;
     }
+
 }

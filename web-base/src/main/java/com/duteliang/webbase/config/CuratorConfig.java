@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
  * @author: zl
  * @Date: 2019-12-27 15:09
  */
-@SpringBootConfiguration
+//@SpringBootConfiguration
 public class CuratorConfig {
 
     @Bean

@@ -5,5 +5,6 @@ package com.duteliang.webbase.aop;
  * @Date: 2020-1-16 17:11
  */
 public interface AopServiceI {
-    String aopTest(String name);
+
+    String aopTest2(AopModel name);
 }

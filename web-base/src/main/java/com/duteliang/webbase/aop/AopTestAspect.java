@@ -13,7 +13,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class AopTestAspect {
 
-    @Pointcut("execution(public * com.duteliang.webbase.aop.*.*(..))")
+//    @Pointcut("execution(String com.duteliang.webbase.aop.*.*(..))")
+//    @Pointcut("@annotation(com.duteliang.webbase.aop.AopAnnotation)")
+//    @Pointcut("args(String,String,..)")
+//    @Pointcut("execution(String com.duteliang.webbase.aop.*.*(..)) && @args(com.duteliang.webbase.aop.AopAnnotation)")
+//    @Pointcut("target(com.duteliang.webbase.aop.AopService)")
+//    @Pointcut("within(com.duteliang.webbase.aop.*)")
+    @Pointcut("execution(String com.duteliang.webbase.aop..*.*(..)) && @target(com.duteliang.webbase.aop.AopAnnotation)")
+//    @Pointcut("execution(String com.duteliang.webbase.aop.*.*(..)) && @within(com.duteliang.webbase.aop.AopAnnotation)")
+//    @Pointcut("@within(com.duteliang.webbase.aop.AopAnnotation)")
     public void pointCut(){}
 
     @Before("pointCut()")
@@ -21,34 +29,34 @@ public class AopTestAspect {
         System.out.println("我是AOP 前置通知！");
     }
 
-    @After("pointCut()")
-    public void doAfter(JoinPoint joinPoint){
-        System.out.println("我是AOP 后置通知！");
-    }
-
-    @AfterReturning(value = "pointCut()",returning = "result")
-    public void doAfterReturning(JoinPoint joinPoint,String result){
-        System.out.println("我是AOP 正常返回通知！返回值："+result);
-    }
-
-    @AfterThrowing(value = "pointCut()",throwing = "e")
-    public void doAfterThrowing(JoinPoint joinPoint,Exception e) {
-        System.out.println("我是AOP 异常返回通知！异常:"+e.getMessage());
-    }
-
-    @Around(value = "pointCut()")
-    public Object Around(ProceedingJoinPoint pjp) throws Throwable {
-        System.out.println("我是环绕AOP 前置通知！");
-        Object proceed;
-        try {
-            proceed = pjp.proceed();
-        }catch (Throwable t){
-            System.out.println("我是环绕AOP 异常返回通知！异常:"+t.getMessage());
-            throw t;
-        } finally {
-            System.out.println("我是环绕AOP 后置通知！");
-        }
-        System.out.println("我是环绕AOP 正常返回通知！返回值："+proceed);
-        return proceed;
-    }
+//    @After("pointCut()")
+//    public void doAfter(JoinPoint joinPoint){
+//        System.out.println("我是AOP 后置通知！");
+//    }
+//
+//    @AfterReturning(value = "pointCut()",returning = "result")
+//    public void doAfterReturning(JoinPoint joinPoint,String result){
+//        System.out.println("我是AOP 正常返回通知！返回值："+result);
+//    }
+//
+//    @AfterThrowing(value = "pointCut()",throwing = "e")
+//    public void doAfterThrowing(JoinPoint joinPoint,Exception e) {
+//        System.out.println("我是AOP 异常返回通知！异常:"+e.getMessage());
+//    }
+//
+//    @Around(value = "pointCut()")
+//    public Object Around(ProceedingJoinPoint pjp) throws Throwable {
+//        System.out.println("我是环绕AOP 前置通知！");
+//        Object proceed;
+//        try {
+//            proceed = pjp.proceed();
+//        }catch (Throwable t){
+//            System.out.println("我是环绕AOP 异常返回通知！异常:"+t.getMessage());
+//            throw t;
+//        } finally {
+//            System.out.println("我是环绕AOP 后置通知！");
+//        }
+//        System.out.println("我是环绕AOP 正常返回通知！返回值："+proceed);
+//        return proceed;
+//    }
 }
